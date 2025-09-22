@@ -1,0 +1,403 @@
+* {
+  box-sizing: border-box; /* Incluye padding y border en el tamaño total del elemento */
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+}
+
+/* Contenedor principal */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+/* Slider de imágenes */
+.image-slider {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 300px; /* Fija la altura del slider */
+  overflow: hidden;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.slider-image {
+  width: 400px;
+  height: 300px;
+  object-fit: contain; /* Muestra la imagen completa sin recortes */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.slider-image:not(.active) {
+  opacity: 0;
+  z-index: 0;
+}
+
+.slider-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Botones de navegación */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
+}
+
+/* Indicadores del slider */
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc; /* Color de los puntos inactivos */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: #452b1a; /* Color del punto activo */
+}
+
+/* Información del producto */
+.product-info {
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: "Plus Jakarta Sans", sans-serif; /* Agregar la fuente */
+}
+
+.product-price {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Talles seleccionables */
+.product-talles {
+  margin-bottom: 20px;
+}
+
+.product-talles h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.talle-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.talle-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.talle-option:hover {
+  border-color: #452b1a;
+}
+
+.talle-option.selected {
+  background-color: #452b1a;
+  color: white;
+  border-color: #452b1a;
+}
+
+/* Botón de agregar al carrito */
+.add-to-cart-button {
+  font-size: 0.9rem;
+  padding: 12px 0;
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Descripción del producto */
+.product-description {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Línea divisoria */
+.divider {
+  width: 80%;
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
+
+/* Estilos del acordeón */
+.accordion {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  padding: 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.accordion-header:hover {
+  background-color: #e8e8e8;
+}
+
+.accordion-icon {
+  font-size: 1.2rem; /* Tamaño del ícono */
+  color: #555; /* Color del ícono */
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 15px;
+  font-size: 0.85rem; /* Reduce el tamaño del texto del contenido */
+}
+
+.accordion-content.open {
+  max-height: 200px; /* Ajusta según el contenido */
+  padding: 15px;
+}
+
+/* Media queries para diseño móvil */
+@media (max-width: 768px) {
+  .product-details {
+    padding: 15px;
+  }
+
+  .image-slider {
+    margin-top: 80px;
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+    height: 400px; /* Aumenta la altura del slider */
+  }
+
+  .slider-image {
+    width: 100%; /* Ajusta el ancho al contenedor */
+    height: 400px; /* Aumenta la altura */
+  }
+
+  .product-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    align-items: start;
+  }
+
+  .product-title {
+    font-size: 1.3rem;
+    align-content: start;
+    align-items: start;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
+
+  .add-to-cart-button {
+    font-size: 0.9rem;
+    padding: 12px 0;
+    display: block; /* Asegura que el botón sea un bloque */
+    margin: 20px auto; /* Centra el botón horizontalmente */
+    text-align: center; /* Centra el texto dentro del botón */
+    max-width: 300px; /* Limita el ancho máximo del botón */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  }
+
+  .slider-button {
+    display: none; /* Oculta las flechas en dispositivos móviles */
+  }
+}
+
+/* Media queries para diseño de escritorio */
+@media (min-width: 1024px) {
+  .product-details {
+    display: flex; /* Cambia a diseño de dos columnas */
+    flex-direction: row; /* Alinea los elementos en fila */
+    justify-content: space-between; /* Espacia los elementos */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    padding: 40px; /* Aumenta el padding para escritorio */
+    gap: 40px; /* Espaciado entre las columnas */
+  }
+
+  .image-slider {
+    flex: 1; /* La columna de las imágenes ocupa el mismo espacio proporcional */
+    max-width: 50%; /* Limita el ancho máximo al 50% */
+    height: 500px; /* Aumenta la altura del slider para escritorio */
+  }
+
+  .slider-image {
+    height: 100%; /* Asegura que la imagen ocupe toda la altura del contenedor */
+  }
+
+  .product-info {
+    flex: 1; /* La columna de los detalles ocupa el mismo espacio proporcional */
+    max-width: 50%; /* Limita el ancho máximo al 50% */
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+
+  .product-title {
+    font-size: 1.5rem; /* Aumenta el tamaño del título */
+    text-align: start;
+  }
+
+  .product-price {
+    font-size: 1rem; /* Aumenta el tamaño del precio */
+  }
+
+  .add-to-cart-button {
+    font-size: 1.2rem; /* Aumenta el tamaño del botón */
+    padding: 15px 20px; /* Ajusta el padding del botón */
+    text-align: center; /* Asegura que el texto esté centrado */
+    align-content: center;
+  }
+
+  .product-description {
+    font-size: 1rem; /* Aumenta el tamaño de la descripción */
+  }
+}
+
+/* Botón estilo bloque */
+.btn-block {
+  width: 80%;
+}
+
+/* Botón primario */
+.btn-primary {
+  padding: 13px;
+  background-color: #452b1a !important;
+  color: #ffffff;
+  fill: #ffffff;
+  letter-spacing: 2px;
+}
+
+/* Estilo base para botones */
+.btn {
+  text-decoration: none;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-transform: uppercase;
+  white-space: normal;
+  background: none;
+  -webkit-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+/* Selector de cantidad */
+.quantity-selector {
+  margin-top: 20px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  padding: 5px 10px;
+  background-color: #452b1a !important;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.quantity-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.quantity-controls span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

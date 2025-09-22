@@ -1,0 +1,241 @@
+.completed-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.completed-container h1 {
+  color: #452b1a;
+  margin-bottom: 1rem;
+}
+
+.completed-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.completed-container li {
+  margin: 0.5rem 0;
+}
+
+.completed-container h3 {
+  margin-top: 1rem;
+  color: #452b1a;
+}
+
+.order-summary {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 800px;
+}
+
+.order-details {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+  gap: 1rem;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.order-detail {
+  border-right: 1px solid #ddd; /* Línea divisora entre columnas */
+  padding: 0 1rem;
+}
+
+.order-detail:last-child {
+  border-right: none; /* Elimina la línea divisora de la última columna */
+}
+
+.order-detail p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.order-detail strong {
+  font-weight: bold;
+  color: #000;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.product-list li {
+  margin: 0.5rem 0;
+}
+
+.product-list a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.product-list a:hover {
+  text-decoration: underline;
+}
+
+.billing-address {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.billing-address h2 {
+  margin-bottom: 1rem;
+}
+
+.billing-address p {
+  margin: 0.3rem 0;
+}
+
+.btn-primary {
+  background-color: #28a745;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #218838;
+}
+
+.confirmation-box {
+  margin: 4.5rem auto; /* Agrega espacio superior e inferior */
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  max-width: 600px;
+}
+
+.confirmation-box h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.confirmation-box p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  background-color: #25d366;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Plus Jakarta Sans", sans-serif; /* Agregar la fuente */
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe57;
+}
+
+/* Contenedor para productos y dirección de facturación */
+.order-details-container {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  gap: 2rem; /* Espacio entre los elementos */
+  margin-top: 2rem;
+}
+
+/* Estilos para los productos */
+.product-details12,
+.billing-address {
+  width: 100%; /* Asegura que ocupen todo el ancho disponible */
+  max-width: 800px; /* Limita el ancho máximo */
+  text-align: center; /* Centra el contenido */
+}
+
+.product-details12 h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #ddd;
+}
+
+.product-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.product-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.product-item a:hover {
+  text-decoration: underline;
+}
+
+.product-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos para la dirección de facturación */
+.billing-address {
+  flex: 1;
+}
+
+.billing-address h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.billing-address p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .order-details {
+    display: flex; /* Cambia de grid a flexbox */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 1rem; /* Agrega espacio entre los elementos */
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+
+  .order-detail {
+    border-right: none; /* Elimina las líneas divisorias entre columnas */
+    padding: 0; /* Elimina el padding lateral */
+  }
+
+  .order-detail p {
+    margin: 0.2rem 0; /* Reduce el margen entre los párrafos */
+    font-size: 1rem; /* Ajusta el tamaño de la fuente */
+  }
+}

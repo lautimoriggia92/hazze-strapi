@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "flayer_homes",
+  "info": {
+    "singularName": "flayer-home",
+    "pluralName": "flayer-homes",
+    "displayName": "flayer-home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "flayersEscritorio": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "flayersCelular": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

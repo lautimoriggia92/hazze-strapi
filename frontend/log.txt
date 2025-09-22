@@ -1,0 +1,2 @@
+- hacerle SEO (almenos los ogtitle y demás)
+- cambiar el title (a cada "page") y favicon
