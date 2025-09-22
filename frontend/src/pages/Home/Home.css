@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+/* Línea separadora encima del título Featured Clothes */
+.separator-line {
+  width: 80%; /* Ancho de la línea */
+  height: 2px; /* Altura de la línea */
+  background-color: #ddd; /* Color de la línea */
+  margin: 20px auto; /* Centra la línea y agrega espaciado */
+}
+
+/* Estilo para el título "Featured Clothes" */
+h1 {
+  text-align: center; /* Centra el texto */
+  font-size: 3rem; /* Tamaño de la fuente */
+  color: #000; /* Color del texto */
+  margin-top: 20px; /* Espaciado superior */
+  font-family: "Bebas Neue", sans-serif;
+}

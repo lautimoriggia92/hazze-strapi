@@ -1,0 +1,755 @@
+/* Importa la fuente desde Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap");
+
+/* Importa la fuente */
+@font-face {
+  font-family: "MathTechnical14";
+  src: url("/fonts/MathTechnical.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Navbar base */
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+/* Contenedor del logo */
+.navbar-header {
+  text-align: center;
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Logo del navbar */
+.navbar-title {
+  font-family: "MathTechnical14", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  height: 120px;
+  width: auto;
+  display: block;
+  margin: 1rem 0 0 0;
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+  /* filter: invert(1) brightness(2); */
+}
+
+/* Subtítulos debajo del header */
+.navbar-subtitles {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
+  font-family: "Plus Jakarta Sans", sans-serif !important; /* Aplica la fuente con prioridad */
+}
+
+/* Botones del slider */
+.slider-button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.slider-button.left {
+  position: absolute;
+  left: 0;
+}
+
+.slider-button.right {
+  position: absolute;
+  right: 0;
+}
+
+/* Contenedor de los enlaces */
+.navbar-links-container {
+  display: flex;
+  gap: 1rem; /* Espaciado entre los enlaces */
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  scroll-behavior: smooth; /* Suaviza el desplazamiento */
+  padding: 0 1rem; /* Espaciado interno */
+  white-space: nowrap; /* Evita que los enlaces se envuelvan en varias líneas */
+}
+
+.navbar-links-container::-webkit-scrollbar {
+  display: none; /* Oculta la barra de scroll en navegadores basados en WebKit */
+}
+
+/* Estilo de los enlaces */
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+  white-space: nowrap; /* Evita que el texto se corte */
+  position: relative;
+  display: inline-block;
+}
+
+/* Subtítulos debajo del header */
+.navbar-links-container .navbar-link {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+}
+
+/* Animación de subrayado al hacer hover */
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Ubica el subrayado justo debajo del texto */
+  left: 0;
+  width: 0; /* Comienza con un ancho de 0 */
+  height: 2px; /* Altura del subrayado */
+  background-color: white; /* Subrayado blanco */
+  transition: width 0.3s ease-in-out; /* Suaviza la animación */
+}
+
+.navbar-link:hover::after {
+  width: 100%; /* Expande el subrayado al ancho completo del texto */
+}
+
+.navbar-link:hover {
+  color: white; /* Cambia el color del texto al hacer hover */
+}
+
+/* Slider con Swiper.js */
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.3s ease-in-out; /* Suaviza el movimiento */
+  transform: translate3d(0, 0, 0); /* Posición inicial */
+}
+
+.swiper-slide {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px; /* Espaciado interno para los enlaces */
+  min-width: auto; /* Ajusta el ancho de cada slide */
+}
+
+/* Subtítulos dentro del slider */
+.swiper-slide .navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem; /* Espaciado interno */
+}
+
+.swiper-slide .navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+.swiper-slide .navbar-link:hover::after {
+  width: 100%;
+}
+
+.swiper-slide .navbar-link:hover {
+  color: white;
+}
+
+/* Responsive: Ajusta el slider en pantallas pequeñas */
+@media screen and (max-width: 767px) {
+  .swiper-wrapper {
+    justify-content: flex-start;
+    transform: translate3d(0, 0, 0); /* Permite el desplazamiento horizontal */
+    overflow-x: scroll; /* Permite el desplazamiento horizontal */
+    scrollbar-width: none; /* Oculta el scroll en navegadores compatibles */
+  }
+
+  .swiper-wrapper::-webkit-scrollbar {
+    display: none; /* Oculta el scroll en navegadores basados en WebKit */
+  }
+
+  .navbar-subtitles {
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    scrollbar-width: none; /* Oculta el scroll en navegadores compatibles */
+  }
+
+  .navbar-subtitles::-webkit-scrollbar {
+    display: none; /* Oculta el scroll en navegadores basados en WebKit */
+  }
+
+  .navbar-links-container {
+    gap: 0.5rem; /* Reduce el espacio entre los enlaces en pantallas pequeñas */
+  }
+}
+
+/* Responsive: Centra los subtítulos en pantallas grandes */
+@media screen and (min-width: 768px) {
+  .navbar-subtitles {
+    justify-content: center; /* Centra los elementos horizontalmente */
+  }
+}
+
+/* Menú hamburguesa */
+.hamburger-menu {
+  display: flex; /* Asegura que el menú hamburguesa sea visible */
+  position: absolute;
+  left: 1rem;
+  top: 63%;
+  transform: translateY(-50%);
+  background: none; /* Fondo transparente */
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  width: 25px;
+  padding: 0;
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Modal estilo */
+.modal {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  color: white; /* Color del texto */
+  z-index: 20000;
+  display: block;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-show {
+  left: 0;
+  opacity: 1;
+}
+
+.modal-content {
+  padding: 1rem;
+}
+
+/* Botón de cierre del modal */
+.modal-close {
+  position: absolute;
+  top: 1rem; /* Ajusta la posición superior */
+  right: 1.5rem; /* Agrega un padding desde el borde derecho */
+  padding-top: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease-in-out; /* Transición suave para el hover */
+}
+
+.modal-close:hover {
+  color: #ccc; /* Cambia el color al pasar el mouse */
+}
+
+.modal-menu {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.modal-menu li {
+  margin: 1rem 0;
+}
+
+.modal-menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Arial, "Inter", sans-serif;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+}
+
+.modal-menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+.modal-menu li a:hover {
+  color: #ccc;
+}
+
+.modal-menu li a:hover::after {
+  width: 100%;
+}
+
+/* Submenú dentro del menú hamburguesa */
+.sub-menu {
+  list-style: none;
+  padding-left: 1.5rem; /* Indentación para diferenciarlo del menú principal */
+  margin-top: 0.5rem;
+}
+
+.sub-menu li {
+  margin: 1rem 0; /* Igual margen que los elementos principales */
+}
+
+.sub-menu li a {
+  text-decoration: none;
+  color: white; /* Mismo color que los enlaces principales */
+  font-size: 1.5rem; /* Igual tamaño de fuente que los enlaces principales */
+  font-family: Arial, "Inter", sans-serif; /* Misma fuente que los enlaces principales */
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+}
+
+.sub-menu li a:hover {
+  color: #ccc; /* Cambia el color al pasar el mouse */
+}
+
+.sub-menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Ubica el subrayado justo debajo del texto */
+  left: 0;
+  width: 0; /* Comienza con un ancho de 0 */
+  height: 2px; /* Altura del subrayado */
+  background-color: white; /* Subrayado blanco */
+  transition: width 0.3s ease-in-out; /* Suaviza la animación */
+}
+
+.sub-menu li a:hover::after {
+  width: 100%; /* Expande el subrayado al ancho completo del texto */
+}
+
+/* Submenú dentro del menú hamburguesa */
+.sub-menu {
+  list-style: none;
+  padding-left: 1.5rem; /* Indentación para diferenciarlo del menú principal */
+  margin-top: 0.5rem;
+}
+
+.sub-menu li {
+  margin: 0.5rem 0;
+}
+
+.sub-menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.sub-menu li a:hover {
+  color: #ccc; /* Cambia el color al pasar el mouse */
+}
+
+/* Estilo para pantallas grandes */
+@media (min-width: 769px) {
+  .modal {
+    width: 50%; /* Ocupa solo el 50% del ancho en computadoras */
+    height: 100%; /* Ocupa toda la altura */
+    left: -50%; /* Posición inicial fuera de la pantalla */
+  }
+
+  .modal-show {
+    left: 0; /* Mueve el menú al centro */
+  }
+}
+
+/* Estilo para pantallas pequeñas (responsive) */
+@media (max-width: 768px) {
+  .modal {
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    left: -100%; /* Posición inicial fuera de la pantalla */
+  }
+
+  .modal-show {
+    left: 0; /* Mueve el menú a la vista */
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex; /* Ya no es necesario ocultarlo en desktop */
+  }
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px; /* Debajo del navbar */
+  left: 0;
+  width: 50%;
+  background-color: transparent; /* Fondo completamente transparente */
+  box-shadow: none; /* Elimina cualquier sombra */
+  border-radius: 4px;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none; /* Desactiva clics cuando está cerrado */
+}
+
+.menu-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* Activa clics cuando está abierto */
+}
+
+.menu-closed {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  margin: 0.5rem 0;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.menu ul li a:hover {
+  color: #007bff;
+}
+
+/* Logo en la parte superior del menú */
+.modal-logo {
+  display: flex;
+  justify-content: flex-start; /* Alinea el logo a la izquierda */
+  align-items: center;
+  margin-bottom: 0.5rem; /* Espacio inferior */
+  padding-left: 1.5rem; /* Alinea el logo con los enlaces */
+}
+
+.modal-logo img {
+  height: 80px; /* Ajusta el tamaño del logo */
+  width: auto; /* Mantén la proporción del logo */
+}
+
+/* Línea divisoria debajo del logo */
+.modal-divider {
+  height: 1px; /* Grosor de la línea */
+  background-color: white;
+  width: 150px; /* Ancho corto para la línea */
+  margin: 0 0 0rem 1.5rem; /* Alinea la línea con el logo y los enlaces */
+}
+
+/* Línea divisoria debajo del contenido del menú */
+.modal-divider1 {
+  height: 1px;
+  background-color: white;
+  width: 90%; /* Ajusta el ancho de la línea */
+  margin: 1rem auto; /* Centra la línea horizontalmente */
+}
+
+/* Contenedor de redes sociales */
+.modal-socials {
+  display: flex;
+  justify-content: center; /* Centra las redes sociales */
+  gap: 2rem; /* Espaciado entre los iconos */
+  margin-top: 1rem;
+}
+
+.modal-socials a img {
+  width: 40px; /* Tamaño de los iconos */
+  height: 40px;
+  transition: transform 0.3s ease-in-out; /* Animación al pasar el mouse */
+}
+
+.modal-socials a img:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño al hacer hover */
+}
+
+/* Estilo de los enlaces del menú */
+.modal-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-menu li {
+  margin: 1rem 0;
+}
+
+.modal-menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  gap: 1rem;
+  padding: 0.3rem 1rem; /* Espaciado interno */
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+  padding-left: 1.5rem; /* Alinea los enlaces con el logo y la línea divisoria */
+}
+
+/* Subrayado animado al hacer hover */
+.modal-menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Ubica el subrayado justo debajo del texto */
+  left: 1.5rem; /* Alinea el subrayado con el texto */
+  width: 0; /* Comienza con un ancho de 0 */
+  height: 2px; /* Altura del subrayado */
+  background-color: white; /* Subrayado blanco */
+  transition: width 0.3s ease-in-out;
+}
+
+.modal-menu li a:hover::after {
+  width: calc(
+    100% - 1.5rem
+  ); /* Expande el subrayado al ancho completo del texto */
+}
+
+.modal-menu li a:hover {
+  color: #ccc; /* Cambia el color del texto al hacer hover */
+}
+
+/* Contenedor del correo */
+.modal-email {
+  margin-top: 1rem;
+  text-align: center; /* Centra el texto horizontalmente */
+  font-family: Arial, "Inter", sans-serif; /* Misma fuente que los enlaces */
+  font-size: 1rem; /* Tamaño de fuente consistente */
+  color: white; /* Color del texto */
+}
+
+.modal-email a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: white; /* Color del enlace */
+  transition: color 0.3s ease-in-out; /* Transición suave para el hover */
+}
+
+.modal-email a:hover {
+  color: #ccc; /* Cambia el color al pasar el mouse */
+}
+
+/* Oculta los subtítulos en modo móvil */
+@media (max-width: 768px) {
+  .navbar-subtitles {
+    display: none; /* Oculta los subtítulos */
+  }
+}
+
+/* Sub-modal */
+.sub-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.sub-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.sub-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sub-modal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sub-modal ul li {
+  margin: 10px 0;
+}
+
+.sub-modal ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.sub-modal ul li a:hover {
+  color: gray;
+}
+
+/* Estilo para el carrito en el navbar */
+.navbar-cart {
+  margin-left: auto; /* Empuja el carrito hacia la derecha */
+  display: flex;
+  align-items: center;
+  position: absolute; /* Asegura que no afecte otros elementos */
+  right: 1rem; /* Ajusta la posición del carrito desde el borde derecho */
+  top: 33px;
+}
+
+.cart-link {
+  color: black; /* Color del ícono del carrito */
+  text-decoration: none;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff0000; /* Fondo rojo para el contador */
+  color: white; /* Texto blanco */
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%; /* Hace el contador circular */
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón expandible del menú hamburguesa */
+.expandable-menu {
+  background: none; /* Elimina el fondo del botón */
+  border: none; /* Elimina el borde del botón */
+  color: white; /* Mismo color que los enlaces */
+  font-size: 1rem; /* Mismo tamaño de fuente que los enlaces */
+  font-family: Arial, "Inter", sans-serif; /* Misma fuente que los enlaces */
+  cursor: pointer; /* Cambia el cursor a pointer */
+  text-align: left; /* Alinea el texto a la izquierda */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 0; /* Elimina el padding */
+  margin: 0; /* Elimina el margen */
+  transition: color 0.3s ease-in-out; /* Suaviza la transición del color */
+}
+
+.expandable-menu:hover {
+  color: #ccc; /* Cambia el color al pasar el mouse */
+}
+
+.modal-menu .expandable-menu {
+  all: unset; /* Resetea todos los estilos heredados */
+  background: none; /* Elimina el fondo del botón */
+  border: none; /* Elimina el borde del botón */
+  color: white; /* Mismo color que los enlaces */
+  font-size: 14.4px; /* Mismo tamaño de fuente que los enlaces */
+  font-family: Arial, "Inter", sans-serif; /* Misma fuente que los enlaces */
+  cursor: pointer; /* Cambia el cursor a pointer */
+  text-align: left; /* Alinea el texto a la izquierda */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 0; /* Elimina el padding */
+  margin: 0; /* Elimina el margen */
+  padding-left: 0px; /* Alinea el texto con los enlaces */
+  margin-left: 1.5rem; /* Alinea el texto con el logo y la línea divisoria */
+  transition: color 0.3s ease-in-out; /* Suaviza la transición del color */
+}
+
+.modal-menu .expandable-menu:hover {
+  color: #ccc; /* Cambia el color al pasar el mouse */
+}
+
+/* Estilo para el enlace expandible del menú */
+.expandable-menu {
+  text-decoration: none;
+  color: white; /* Mismo color que los enlaces principales */
+  font-size: 1.5rem; /* Mismo tamaño de fuente */
+  font-family: Arial, "Inter", sans-serif; /* Misma fuente */
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease-in-out; /* Suaviza la transición del color */
+}
+
+.expandable-menu:hover {
+  color: #ccc; /* Cambia el color al pasar el mouse */
+}
+
+.expandable-menu::after {
+  content: ""; /* Subrayado animado */
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+.expandable-menu:hover::after {
+  width: 100%; /* Expande el subrayado al ancho completo */
+}
+
+/* Estilo base para el ícono de apertura/cierre */
+.expand-icon {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease-in-out; /* Suaviza la animación */
+  transform: rotate(0deg); /* Posición inicial */
+  font-size: 1.2rem; /* Tamaño del ícono */
+  font-weight: bold;
+}
+
+/* Rotación cuando el menú está abierto */
+.expand-icon.open {
+  transform: rotate(90deg); /* Rota 90 grados */
+}
